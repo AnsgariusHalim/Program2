@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Collection</title>
+  <link rel="stylesheet" href="displayPicture.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Picture Collection</h1>
+    <div class="picture-container">
+      <div class="picture-grid">
+        {% for image_id in image_ids %}
+        <div class="picture-item">
+          <img src="/get_picture/{{ image_id }}" alt="Image" style="width: 200px; height: 200px; object-fit: cover;">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <a href="/" class="button">Return to Homepage</a>
+  </div>
+</body>
+
+</html>
