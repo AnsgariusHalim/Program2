@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="addBooks.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Book</h1>
+        <form action="/books" method="POST" id="addBookForm">
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required><br>
+
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author" required><br>
+
+            <label for="pages">Pages:</label><br>
+            <input type="number" id="pages" name="pages" required><br>
+
+            <label for="rating">Rating:</label><br>
+            <input type="number" id="rating" name="rating" step="0.1" min="0" max="5" required><br>
+
+            <label for="genres">Genres (separated by commas):</label><br>
+            <input type="text" id="genres" name="genres" required><br>
+
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('addBookForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent default form submission
+
+            // Get form data
+            const formData = new FormData(this);
+
+            // Send form data via fetch API
+            fetch('/books', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Book added successfully, redirect to homepage
+                    window.location.href = '/';
+                } else {
+                    // Failed to add book, show warning message
+                    alert('Failed to add book. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
+    <a href="/" class="return-btn">Return to Homepage</a>
+</body>
+</html>

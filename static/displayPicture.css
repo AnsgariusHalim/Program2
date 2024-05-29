@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles for the overall container and grid */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.picture-container {
+  max-height: 500px;
+  /* Set a fixed height for the container */
+  overflow-y: auto;
+  /* Enable vertical scrolling if content overflows */
+}
+
+.picture-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.picture-item {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 200px;
+  /* Set a specific width for grid items */
+  height: 200px;
+  /* Set a specific height for grid items */
+}
+
+.picture-item img {
+  width: 100%;
+  /* Ensure the image fills the container */
+  height: 100%;
+  /* Ensure the image fills the container */
+  object-fit: cover;
+  /* Cover the container without distorting the aspect ratio */
+  border-radius: 5px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
